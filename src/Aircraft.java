@@ -1,4 +1,4 @@
-public class Aircraft
+public class Aircraft extends Flyable
 {
     protected long id;
     protected String name;
