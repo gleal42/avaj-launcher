@@ -1,8 +1,12 @@
+package weather;
+
+import coordinates.Coordinates;
+
 class WeatherProvider
 {
     private static volatile  WeatherProvider instance;
-    private String value;
-    private WeatherProvider(String value)
+    private String[] weather;
+    private WeatherProvider()
     {
     }
     public static WeatherProvider getInstance(String value) {
@@ -12,12 +16,12 @@ class WeatherProvider
         }
         synchronized (WeatherProvider.class) {
             if (instance == null) {
-                instance = new WeatherProvider(value);
+                instance = new WeatherProvider();
             }
             return instance;
         }
     }
     public String getCurrentWeather(Coordinates p_coordinates) {
-        return value;
+        return weather[0];
     }
 }

@@ -1,3 +1,7 @@
+package flyable;
+
+import coordinates.Coordinates;
+
 import java.util.Objects;
 
 class AircraftFactory

@@ -1,12 +1,11 @@
-/**
- * Coordinates
- */
-public class Coordinates {
-    private int longitude;
-    private int latitude;
-    private int height;
+package coordinates;
 
-    public Coordinates(int p_longitude, int p_latitude, int p_height)
+public class Coordinates {
+    private final int longitude;
+    private final int latitude;
+    private final int height;
+
+    Coordinates(int p_longitude, int p_latitude, int p_height)
     {
         longitude=p_longitude;
         latitude=p_latitude;
