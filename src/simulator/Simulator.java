@@ -15,10 +15,11 @@ import java.util.regex.Pattern;
 public class Simulator {
     private String filePath;
     private Integer simulationTimes;
-    ArrayList<Flyable> flyables;
+    private ArrayList<Flyable> flyables;
 
     public Simulator(String filePath) {
         this.filePath = filePath;
+        this.flyables = new ArrayList<>();
     }
 
     public void run() {
@@ -50,7 +51,7 @@ public class Simulator {
         return Pattern.matches("\\d+", nbrSimulationsLine);
     }
 
-    private static void extractAllAircraft(LineNumberReader reader) throws IOException, InvalidLineException, InvalidAircraftException {
+    private void extractAllAircraft(LineNumberReader reader) throws IOException, InvalidLineException, InvalidAircraftException {
         String aircraftLine;
         while ((aircraftLine = reader.readLine()) != null) {
             if (isValidAircraftLine(aircraftLine, reader.getLineNumber())) {
@@ -65,7 +66,7 @@ public class Simulator {
         return true;
     }
 
-    private static void extractSingleAircraft(String aircraftLine, int lineNumber) throws InvalidLineException, InvalidAircraftException {
+    private void extractSingleAircraft(String aircraftLine, int lineNumber) throws InvalidLineException, InvalidAircraftException {
         String aircraftType;
         String aircraftName;
         Coordinates aircraftCoordinates;
@@ -75,7 +76,7 @@ public class Simulator {
             aircraftCoordinates = getAircraftCoordinates(lineNumber, scanner);
         }
         AircraftFactory aircraftFactory = AircraftFactory.getInstance();
-        aircraftFactory.newAircraft(aircraftType, aircraftName, aircraftCoordinates);
+        flyables.add(aircraftFactory.newAircraft(aircraftType, aircraftName, aircraftCoordinates));
     }
 
     private static Coordinates getAircraftCoordinates(int lineNumber, Scanner scanner) {

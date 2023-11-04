@@ -10,4 +10,5 @@ public abstract class Flyable
     {
         weatherTower = p_tower;
     }
+
 }
