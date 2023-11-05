@@ -64,6 +64,8 @@ public class Simulator {
     }
 
     private static boolean isValidAircraftLine(String line, int lineNb) {
+        // TODO: Coordinates are positive numbers. (Validate negative)
+        // TODO: There can’t be 2 aircrafts with the same ID
         return true;
     }
 
