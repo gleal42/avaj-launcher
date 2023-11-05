@@ -2,6 +2,7 @@ package simulator;
 
 import coordinates.Coordinates;
 import exceptions.InvalidAircraftException;
+import exceptions.InvalidWeather;
 import flyable.AircraftFactory;
 import exceptions.InvalidLineException;
 import flyable.Flyable;
@@ -29,7 +30,7 @@ public class Simulator {
             extractAllAircraft(reader);
             runSimulations();
         } catch (IOException | InvalidLineException | InvalidAircraftException e) {
-            System.err.println(e.getMessage());
+            System.out.println(e.getMessage());
             System.exit(1);
         }
     }
